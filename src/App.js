@@ -32,6 +32,9 @@ function App() {
 
   const add_new_todo = (title) => {
     console.log("form submited",title);
+
+    setTodo([...todos, {id:(todos[todos.length-1].id + 1),title}])
+
   }
 
   return (
