@@ -6,7 +6,10 @@ export const AddTodo = ({add_new_todo}) => {
     const submit = (e) => {
         e.preventDefault();
 
+        //add new title to the array
         add_new_todo(title);
+
+        //reset ttile
         setTitle("")
     }
     return (
