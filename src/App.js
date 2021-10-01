@@ -5,6 +5,11 @@ import {Todos} from './components/todos'
 import {AddTodo} from './components/addTodo'
 import {Footer} from './components/footer'
 import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -39,10 +44,26 @@ function App() {
 
   return (
     <>
+    <Router>
+
       <Header title="My todo app" />
-      <AddTodo add_new_todo={add_new_todo}></AddTodo>
-      <Todos todos={todos} onDelete={onDelete}/>
+
+        <Switch>
+          <Route path="/todo">
+            <div>
+              <AddTodo add_new_todo={add_new_todo}></AddTodo>
+              <Todos todos={todos} onDelete={onDelete}/>
+            </div>
+          </Route>
+          <Route path="/">
+           <div>This is home</div>
+          </Route>
+        </Switch>
+    
       <Footer copyright={2021} company="my company" />
+    </Router>
+    
+      
     </>
   );
 }
